@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Function.prototype.call=(obj,...args)=>{
+      // this(...args)
+      //geiobj添加一个方法 方法跟属性的关系---> 方法是一个特别的属性 属性值是函数 
+      //函数对象:将函数作为对象执行的时候 实例对象:简称对象
+      obj.tempFn=this
+      obj.tempFn(...args)
+      delete obj.tempFn
+    }
+    Function.prototype.bind=()=>{
+        return (...args2)=>{
+          this.call(obj,...args,...args2)
+        }
+    }
+  </script>
+</body>
+</html>

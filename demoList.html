@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="test">
+
+  </div>
+</body>
+</html>
+<script>
+</script>
+<script src="./react/react.development.js"></script>
+<script src="./react/react-dom.development.js"></script>
+<script src="./react/babel.min.js"></script>
+<script type="text/babel">
+  let items = ['1','a','b','ccscs']
+  //创建虚拟dom对象
+  const ul = (
+    <ul>
+      {
+        items.map((item)=>
+          <li >{item} </li>
+        )
+      }
+      </ul>
+  )
+
+  //渲染到页面
+  ReactDOM.render(ul,document.getElementById('test'))
+</script>
