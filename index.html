@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="test">
+
+  </div>
+  <script src="./react/react.development.js"></script>
+  <script src="./react/react-dom.development.js"></script>
+  <script src="./react/babel.min.js"></script>
+  <script type="text/babel">//声明 告诉babel先编译然后运行
+    //1 创建一个虚拟dom 实际上是一个对象 使
+    ReactDOM.render(
+      <h1>react哈哈哈哈</h1>,//虚拟domh1 
+      document.getElementById('test')
+    )
+  
+  </script>
+</body>
+</html>
