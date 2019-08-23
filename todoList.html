@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="example"></div>
+</body>
+</html>
+<script src="./react/react.development.js"></script>
+<script src="./react/react-dom.development.js"></script>
+<script src="./react/prop-types.js"></script>
+<script src="./react/babel.min.js"></script> 
+<script>
+  class App extends React.Component{
+    state={
+      todos:['吃饭','睡觉','打游戏']
+    }
+    addToDo=(todo)=>{
+      const todos = this.state.todos
+      this.setState({
+        todos:[todo,...todos]//没有修改原本的数据状态
+      })
+    }
+    render(){
+      const {todos}=this.state
+      return(
+        <div>
+          <h1>TOO LIST</h1>
+          <Add size={todos.length} addToDo={this.addToDo}/>
+          <List todos={todos} />
+        </div>
+      )
+    }
+  }
+
+  //todo组件添加
+  class Add extends React.Component{
+    static propTypes={
+      size:propTypes.number.isRequired,
+      addTodo:propTypes.func.isRequired
+    }
+    add=()=>{
+      const todo = this.refs.todo.value.trim()
+      return(
+        <div>
+          <input type='text' ref ='todo'/>
+          <button onClick={this.add}>Add#{size}</button>
+        </div>
+      )
+    }
+  }
+  function List(props){
+    return (
+      <ul>
+        {props.todos.map((todo, index) => <li key={index}>{todo}</li>)}
+        </ul>
+    )
+  }
+  List.propTypes = {
+      todos: PropTypes.array.isRequired
+    }
+
+    // 渲染根组件标签
+    ReactDOM.render(<App/>, document.getElementById('example'))
+
+</script>
